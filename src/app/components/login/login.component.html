@@ -1,0 +1,47 @@
+<div>
+
+    <img src="assets/layout/login.png">
+
+    <br>
+    <ng-template [ngIf]="isUserLoggedIn == false">
+        <form>
+            <input type="text" placeholder="Username" name="username" [(ngModel)]="userLoginDetails.email"><br>
+            <input type="password" placeholder="Password" name="password" [(ngModel)]="userLoginDetails.password"><br>
+            <input type="button" class="login_signup_buttons login" (click)="login()" value="Login" />
+            <input type="button" class="login_signup_buttons signup" (click)="signUp()" value="SignUp" />
+        </form> 
+    </ng-template>
+
+    <ng-template [ngIf]="isUserLoggedIn == true && currentCartState != 'new user'">
+        Hey {{ name }}, welcome back to our website!
+    </ng-template>
+    <ng-template [ngIf]="isUserLoggedIn == true && currentCartState == 'new user'">
+
+        Hey {{ name }}, it seems like this is your first time here. Welcome to our website!
+        <br>
+        <input type="button" class="login_signup_buttons" (click)="startShopping()" value="Open a new cart" />
+
+    </ng-template>
+    <ng-template [ngIf]="isUserLoggedIn == true && currentCartState == 'new'">
+
+        <br>
+        <ng-template [ngIf] = "orderingDate">
+
+            Your last purchase was on {{ orderingDate }}
+            <br>
+
+        </ng-template>
+        <input type="button" class="login_signup_buttons" (click)="startShopping()" value="Open a new cart" />
+
+    </ng-template>
+
+    <ng-template [ngIf]="isUserLoggedIn == true && currentCartState == 'continued'">
+
+        <br>
+        You have an open cart that was opened on {{ openingDate }}
+        <br>
+        <input type="button" class="login_signup_buttons" (click)="resumeShopping()" value="Continue Shopping" />
+
+    </ng-template>
+
+</div>

@@ -1,0 +1,29 @@
+<div class = "carousel">
+  <ngb-carousel #carousel [interval]="3000" [pauseOnHover]="pauseOnHover">
+    <ng-template ngbSlide *ngFor = "let slide of slides">
+      <div class="carousel-caption">
+      </div>
+        <div class="picsum-img-wrapper">
+          <div class = {{slide.image}}>
+          </div>
+        </div>
+    </ng-template>
+  </ngb-carousel>
+</div>
+
+<div id = "additionalOptions">
+  <div class = "optionBox">
+    <app-login></app-login>
+  </div>
+  <div class = "optionBox">
+
+    <img src="assets/layout/moreinfo.png">
+
+    <br>
+    From various types of meat, to different kinds of dairies, vegetables and other consumebales - we have them all.
+    Nominated as one of the top 10 best markets in the entire country, we provide some of the best products out there.
+  </div>
+  <div class = "optionBox">
+    <app-statisticspanel></app-statisticspanel>
+  </div>
+</div>

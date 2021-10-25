@@ -1,0 +1,68 @@
+#cart {
+
+    background-color: #e0e0e0;
+    border-right: 1px solid rgb(92, 92, 92);
+    height: 100%;
+
+}
+
+.cartHeader {
+    height: 30px;
+    background-color: #e0e0e0;
+
+}
+
+.cartContents {
+
+    background-color: #e0e0e0;
+    overflow: auto;
+
+}
+
+.right {
+    float: right;
+}
+
+.totalPrice {
+    float: left;
+}
+
+.order {
+    float: right;
+}
+
+.headerTitle {
+    position: inline;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.clearButton {
+    float: right;
+}
+
+.minimize {
+    float: left;
+}
+
+.cartButtons {
+    height: 30px;
+    width: 30px;
+
+}
+
+@media only screen and (max-width: 1000px) and (min-width: 0px) {
+
+    #cart {
+
+        border: none;
+
+    }
+
+    #search-term {
+
+        width: 100%;
+
+    }
+
+}

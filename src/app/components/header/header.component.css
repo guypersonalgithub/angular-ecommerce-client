@@ -1,0 +1,171 @@
+#header {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline;
+    padding: 0 20px 0 20px;
+}
+
+#title {
+
+    margin-left: 1em;
+
+}
+
+h1 {
+    margin: 0;
+    font-weight: bold;
+}
+
+nav {
+
+    text-align: right;
+
+}
+
+.headerButton {
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.headerPhoneButton {
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 100%;
+    text-align: left;
+
+}
+
+.headerPhoneButton:hover {
+
+    color: #6D4D90;
+
+}
+
+.home {
+    color: #e8491d;
+}
+
+.headerButton:hover {
+    color: #6D4D90;
+}
+
+.brand {
+    color: #e8491d;
+}
+
+#phoneHeader {
+
+    visibility: hidden;
+
+}
+
+#shaderHidden {
+
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    transition-duration: 0.5s;
+    z-index: -1;
+    visibility: hidden;
+
+}
+
+#shader {
+
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    opacity: 0.5;
+    transition-duration: 0.5s;
+    z-index: 1000;
+
+}
+
+#phoneMenuHidden {
+
+    position: fixed;
+    width: 50%;
+    height: 100%;
+    background-color: #502a6e;
+    color: rgb(255, 255, 255);
+    border-left: #e8491d 3px solid;
+    z-index: 1000;
+    right: -100%;
+    top: 0;
+    transition-duration: 0.5s;
+
+}
+
+#phoneMenu {
+
+    position: fixed;
+    width: 50%;
+    height: 100%;
+    background-color: #502a6e;
+    color: rgb(255, 255, 255);
+    border-left: #e8491d 3px solid;
+    z-index: 1000;
+    right: 0%;
+    top: 0;
+    transition-duration: 0.5s;
+
+}
+
+@media only screen and (max-width: 750px) and (min-width: 0px) {
+
+    #normalHeader {
+
+        display: none;
+
+    }
+
+    #phoneHeader {
+
+        visibility: visible;
+
+    }
+
+}
+
+@media only screen and (max-width: 400px) and (min-width: 0px) {
+
+    h1 {
+
+        font-size: 35px;
+
+    }
+
+    h4 {
+
+        font-size: 15px;
+
+    }
+
+}

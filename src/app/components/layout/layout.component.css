@@ -1,0 +1,36 @@
+section {
+    height: 100%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat (12,1fr);
+    grid-template-rows: 95px auto 95px;
+    font-family: Stylish;
+    min-width: 300px;
+}
+
+header, footer, main {
+    grid-column: span 12;
+}
+
+main{
+    text-align: center;
+    color: rgb(36, 32, 32);
+    background-color: #ffffff;
+} 
+
+header {
+    background-color: #502a6e;
+    color: rgb(255, 255, 255);
+    padding-top: 10px;
+    min-height: 70px;
+    border-bottom: #e8491d 3px solid;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: inline;
+}
+
+
+footer {
+    background-color: #502a6e;
+    text-align: center;
+    color: rgb(255, 255, 255);
+}

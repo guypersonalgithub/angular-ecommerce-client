@@ -1,0 +1,51 @@
+<div id = "header">
+
+    <div id = "title">
+        <h1><span class="brand">Mega</span> Market</h1>
+        <h4>All you need. Anywhere. Anytime.</h4>
+    </div>
+    
+    <nav id = "normalHeader">
+        <ul>
+            <li><input type="button" class="headerButton home" role="button" (click)="home()" value="Home"></li>
+            <li><input type="button" class="headerButton" role="button" (click)="shopping()" value="Shopping"></li>
+            <li><input type="button" class="headerButton" role="button" (click)="order()" value="Order"></li>
+        </ul>
+    </nav>   
+
+    <nav id = "phoneHeader">
+
+        <ul>
+
+            <li>
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-list" viewBox="0 0 16 16" (click) = "openMenu()">
+                    <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                </svg>
+
+            </li>
+
+        </ul>
+
+    </nav>
+    
+    <div id = {{menuShader}} (click) = "closeMenu()">
+
+    </div>
+
+    <div id = {{phoneMenu}}>
+
+        <div id = "title">
+            <h1><span class="brand">Mega</span> Market</h1>
+            <h4>All you need. Anywhere. Anytime.</h4>
+        </div>
+
+        <ul>
+            <li><input type="button" class="headerPhoneButton home" role="button" (click)="home()" value="Home"></li>
+            <li><input type="button" class="headerPhoneButton" role="button" (click)="shopping()" value="Shopping"></li>
+            <li><input type="button" class="headerPhoneButton" role="button" (click)="order()" value="Order"></li>
+        </ul>
+
+    </div>
+
+</div>

@@ -1,0 +1,102 @@
+<div class = "signUpContainer">
+            <!-- first page -->
+    <ng-template [ngIf]="signUpPage == 1">
+        <form #signUpForm="ngForm">
+
+            <div id = "registrationForm">
+
+                <span class = "signUpTitles">ID</span>
+                <input class="registrationInputs" #idInput="ngModel" type="text" placeholder="ID" required pattern="^[0-9]{9}$" name="id" required [(ngModel)]="userSignUpDetails.id">
+                <span class = "signUpTitles">Email</span>
+                <div class = "emailTemplate">
+                    <input class="registrationInputs" #emailInput="ngModel" type="text" placeholder="Email" required pattern="^[a-zA-Z0-9]*$" name="email" required [(ngModel)]="userSignUpDetails.email">
+                    <select id="endingEmail" #emailEndingInput="ngModel" name="endingEmail" required [(ngModel)]="userSignUpDetails.endingEmail">
+                            <option value="@gmail.com">@gmail.com</option>
+                            <option value="@hotmail.com">@hotmail.com</option>
+                            <option value="@yahoo.com">@yahoo.com</option>
+                    </select>
+                </div>
+                <span class = "signUpTitles">Password</span>
+                <input class="registrationInputs" #passwordInput="ngModel" type="password" placeholder="Password" name="password" required minlength = "3" required [(ngModel)]="userSignUpDetails.password">
+
+                <input type="button" class = "backButton" (click)="backToHome()" value="Back" />
+                <input type="button" class="forwardButton" [disabled]="signUpForm.form.invalid" (click)="nextPage()" value="Next" />
+
+            </div>
+
+            <br><br><br>
+                    
+            <div class="errors">
+                    
+                <span *ngIf="idInput.errors?.required && idInput.touched">Cannot sign up without an ID.</span>
+                <span *ngIf="idInput.errors?.pattern && idInput.touched">An ID may only contain digits, and it must contain exactly 9 digits.</span>
+                <span *ngIf="emailInput.errors?.required && emailInput.touched">Cannot sign up without an email.</span>
+                <span *ngIf="emailInput.errors?.pattern && emailInput.touched">An email address may only contain letters and digits.</span>
+                <span *ngIf="emailEndingInput.invalid && emailEndingInput.touched">You must pick an email type from the selection box.</span>
+                <span *ngIf="passwordInput.errors?.required && passwordInput.touched">Cannot sign up without a password.</span>
+                <span *ngIf="passwordInput.errors?.minlength && passwordInput.touched">Password must be between 3 to 20 characters.</span>
+                <span *ngIf="!IDIsFine">This ID number is already registered in our services. Please pick another one.</span>
+                <span *ngIf="IDIsFine == 'not loaded yet'">It seems like you have yet to fully load this page. Please try again.</span>    
+
+            </div>
+    
+            </form>
+        </ng-template>
+
+        <!-- second page -->
+    <ng-template [ngIf]="signUpPage == 2">
+        <form #signUpForm="ngForm">
+
+            <div id = "registrationForm">
+
+                <span class="signUpTitles">City</span>
+                
+                <select id="city" #cityInput="ngModel" name="city" required [(ngModel)]="userSignUpDetails.city">
+                    <option value="Jerusalem">Jerusalem</option>
+                    <option value="Tel Aviv">Tel Aviv</option>
+                    <option value="Haifa">Haifa</option>
+                    <option value="Rishon leZion">Rishon leZion</option>
+                    <option value="Petach Tikva">Petach Tikva</option>
+                    <option value="Ashdod">Ashdod</option>
+                    <option value="Netanya">Netanya</option>
+                    <option value="Be'er Sheva">Be'er Sheva</option>
+                    <option value="Holon">Holon</option>
+                    <option value="Ashkelon">Ashkelon</option>
+                </select>
+                
+                <span class="signUpTitles">Street</span>
+                
+                <input class="registrationInputs" #streetInput="ngModel" type="text" placeholder="Street" required pattern="^[ 0-9a-zA-Z]*$" name="street" required [(ngModel)]="userSignUpDetails.street">
+                
+                <span class="signUpTitles">Name</span>
+                
+                <input class="registrationInputs" #nameInput="ngModel" type="text" placeholder="Name" required pattern="^[a-zA-Z]*$" name="name" required [(ngModel)]="userSignUpDetails.name">
+                
+                <span class="signUpTitles">Last Name</span>
+                
+                <input class="registrationInputs" #lastNameInput="ngModel" type="text" placeholder="Last Name" required pattern="^[a-zA-Z]*$" name="last name" required [(ngModel)]="userSignUpDetails.lastName">
+                
+                <input type="button" class="backButton" (click)="previousPage()" value="Back" />
+                
+                <input type="button" class="forwardButton" [disabled]="signUpForm.form.invalid" (click)="signUp()" value="Submit" />
+
+            </div>
+
+            <br><br><br>
+                    
+            <div class="errors">
+
+                <span *ngIf="cityInput.errors?.required && cityInput.touched">Cannot sign up without a city.</span>
+                <span *ngIf="streetInput.errors?.required && streetInput.touched || streetInput.invalid && streetInput.touched">Cannot sign up without a street.</span>
+                <span *ngIf="streetInput.errors?.pattern && streetInput.touched">A street may only contain digits and letters.</span>
+                <span *ngIf="nameInput.errors?.required && nameInput.touched">Cannot sign up without a name.</span>
+                <span *ngIf="nameInput.errors?.pattern && nameInput.touched">A name may only contain letters.</span>
+                <span *ngIf="lastNameInput.errors?.required && lastNameInput.touched">Cannot sign up without a last name.</span>
+                <span *ngIf="lastNameInput.errors?.pattern && lastNameInput.touched">A last name may only contain letters.</span>
+
+            </div>
+
+        </form>
+    </ng-template>
+
+</div>

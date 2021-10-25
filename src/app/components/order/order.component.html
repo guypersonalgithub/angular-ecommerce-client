@@ -1,0 +1,92 @@
+<div [class.order] = "!smallScreen" [class.phoneOrder] = "smallScreen">
+
+    <aside [class.cartOpen] = "cartClass" [class.cartClose] = "!cartClass">
+        <app-cart></app-cart>
+    </aside>
+
+    <main>
+        <div class="orderHeader">
+
+            <span *ngIf = "smallScreen">
+            
+                <input type="button" class = "switchReceiptButton" (click)="openReceipt()" value={{receiptStateButtonText}} />
+
+            </span>
+
+            Order
+        </div>
+        <hr>
+        <div class="shippingDetails">
+            <div class="shippingHeader">
+                Shipping Details:
+            </div>
+            <form #orderForm="ngForm">
+                <div id = "shippingForm">
+
+                    <span class = "orderTitles">City <span class = "orderSecondaryTitles">double click to insert your registered city</span></span>
+                    <select id="city" #cityInput="ngModel" name="city" required (dblclick)="postCity()" [(ngModel)]="orderDetails.city">
+                       <option value="Jerusalem">Jerusalem</option>
+                       <option value="Tel Aviv">Tel Aviv</option>
+                       <option value="Haifa">Haifa</option>
+                       <option value="Rishon leZion">Rishon leZion</option>
+                       <option value="Petach Tikva">Petach Tikva</option>
+                       <option value="Ashdod">Ashdod</option>
+                       <option value="Netanya">Netanya</option>
+                       <option value="Be'er Sheva">Be'er Sheva</option>
+                       <option value="Holon">Holon</option>
+                       <option value="Ashkelon">Ashkelon</option>
+                   </select>
+               <span class = "orderTitles">Street <span class = "orderSecondaryTitles">double click to insert your registered street</span></span>
+               <input class="streetInput" #streetInput="ngModel" type="text" placeholder="Street" name="street" required pattern="^[ 0-9a-zA-Z]*$" (dblclick)="postStreet()" [(ngModel)]="orderDetails.street">
+               <span class = "orderTitles">Shipping Date</span>
+               <span id = "datePicker">
+
+                   <ngb-datepicker #dp required [(ngModel)]="orderDetails.shipping_date" name="calendar" (navigate)="date = $event.next" [minDate]="{year: currentYear, month: currentMonth, day: currentDay}" [maxDate]="{year: (currentYear + 20), month: 12, day: 31}" [markDisabled]="isDisabled"></ngb-datepicker>
+
+               </span>
+               <span class = "orderTitles">Credit Card <span class = "orderSecondaryTitles">since this is just a demo, the service doesn't connect with any external banking APIs</span></span>
+               <input class="creditCardInput" #creditCardInput="ngModel" type="text" placeholder="Credit card" required pattern="^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$" name="credit card" required [(ngModel)]="orderDetails.credit_card">
+               <input type="button" class="forwardButton" [disabled]="orderForm.form.invalid" (click)="order(content)" value="Order Now" />
+               <ng-template [ngIf] = "finishedOrder">
+
+                <input type="button" class="forwardButton" (click)="backHome()" value="Home" />
+
+               </ng-template>
+
+
+                </div>
+                    
+                <br><br><br>
+                    
+                <div class="errors">
+
+                    <span *ngIf="cityInput.errors?.required && cityInput.touched">Cannot order without a city.</span>
+                    <span *ngIf="streetInput.errors?.required && streetInput.touched || streetInput.invalid && streetInput.touched">Cannot order without a street.</span>
+                    <span *ngIf="streetInput.errors?.pattern && streetInput.touched">A street may only contain digits and letters.</span>
+                    <span *ngIf="creditCardInput.errors?.required && creditCardInput.touched">Cannot order without a credit card.</span>
+                    <span *ngIf="creditCardInput.errors?.pattern && creditCardInput.touched">A credit card may only contain digits, and must be at a length of a real credit card number.</span>
+     
+
+                </div>
+
+
+                <ng-template #content let-modal>
+                    <div class="modal-header">
+                      <h4 class="modal-title" id="modal-basic-title">Sucessful order!</h4>
+                    </div>
+                    <div class="modal-body">
+                      <form>
+                          To download your receipt press <a [href]="fileUrl" download="receipt.txt">here</a>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-outline-dark" (click)="save()">Close</button>
+                    </div>
+                  </ng-template>
+
+            </form>
+            
+        </div>
+    </main>
+</div>
+

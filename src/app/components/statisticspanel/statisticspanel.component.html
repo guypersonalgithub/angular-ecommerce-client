@@ -1,0 +1,31 @@
+<div>
+
+    <img src="assets/layout/statistics.png">
+
+    <br>
+
+    <ng-template [ngIf] = "numberOfOrders == -1 && numberOfOrders == -1 || !numberOfOrders && !numberOfProducts">
+
+        <div>
+
+            In order to see our statistics, please login.
+
+        </div>
+
+    </ng-template>
+
+    <ng-template [ngIf] = "numberOfOrders != -1 && numberOfProducts != -1 && numberOfOrders && numberOfProducts">
+
+        <div>
+            Available products in our store - <span class = "info">{{ numberOfProducts }}</span><br>
+            Number of orders submitted in our store - <span class = "info">{{ numberOfOrders }}</span><br>
+        </div>
+
+    </ng-template>
+    <ng-template [ngIf]="currentUserCart.creation_date != null && currentUserCart.creation_date !== 'User_offline' && currentUserCart.order_date == null">
+        You have an open cart from <span class = "info">{{ currentUserCart.creation_date }}</span>
+    </ng-template>
+    <ng-template [ngIf]="currentUserCart.creation_date != null && currentUserCart.order_date != null">
+        Your last purchase was on <span class = "info">{{ currentUserCart.order_date }}</span>
+    </ng-template>
+</div>

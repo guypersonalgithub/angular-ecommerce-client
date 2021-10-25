@@ -1,0 +1,135 @@
+.shopping {
+
+    display: grid;
+    grid-template-columns: 300px auto;
+    height: 100%;
+
+}
+
+.asideGone {
+
+    display: none;
+
+}
+
+.categories {
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.categoryButtons {
+
+    display: grid;
+    grid-template-columns: auto auto;
+    border-right: 1px solid rgb(92, 92, 92);
+    border-top: 1px solid rgb(92, 92, 92);
+    background-color: #e0e0e0;
+
+}
+
+.categoryHeader {
+
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    font-weight: bold;
+    color: black;
+    background-color: #e0e0e0;
+    border-right: 1px solid rgb(92, 92, 92);
+
+}
+
+#searchBar {
+
+    background-color: #e0e0e0;
+    border-right: 1px solid rgb(92, 92, 92);
+    border-bottom: 1px solid rgb(92, 92, 92);
+
+}
+
+.product {
+
+    color: black;
+
+}
+
+.products {
+
+    overflow: auto;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+}
+
+.arrow {
+
+    text-align: right;
+
+}
+
+.search {
+
+    text-align: left;
+
+}
+
+.switchCartButton {
+
+    min-width: 60px;
+
+}
+
+@media only screen and (max-width: 1000px) and (min-width: 0px) {
+
+    .shopping {
+
+        display: grid;
+        grid-template-columns: auto;
+
+    }
+
+    .asideNormal {
+
+        position: fixed;
+        transform: translateX(100%);
+        top: 0;
+        right: 0;
+        width: 50vw;
+        height: 100vh;
+
+    }
+
+    .asideGone {
+
+        display: initial;
+        position: fixed;
+        transform: translateX(0%);
+        top: 0;
+        right: 0;
+        width: 50vw;
+        height: 100vh;
+        transition-duration: 0.5s;
+        overflow: auto;
+        z-index: 1000;
+        border-left: 1px solid rgb(92, 92, 92);
+    
+    }
+
+}
+
+@media only screen and (max-width: 600px) and (min-width: 0px) {
+
+    .categoryHeader {
+
+        grid-template-columns: auto auto auto;
+
+    }
+
+    .products {
+
+        grid-template-columns: 50% 50%;
+
+    }
+
+}

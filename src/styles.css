@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~bootstrap/dist/css/bootstrap.css';
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+    font-size: 15px;
+}
+
+html {
+
+    overflow: hidden;
+    position: relative;
+    
+}
+  
+body {
+  
+    position: relative;
+    overflow-x: hidden;
+}
+
+button:focus {
+
+    outline: none;
+    box-shadow: none;
+
+}
+
+.modal-open {
+
+    overflow-y: auto;
+
+}

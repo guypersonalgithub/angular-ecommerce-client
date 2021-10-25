@@ -1,0 +1,85 @@
+<div id = "cart" *ngIf="currentPage != 0">
+    <div class = "cartHeader">
+        <span class = "headerTitle">
+            My Cart:
+        </span>
+            <span class = "clearButton">
+                <input type="button" [disabled]="currentPage != 1" class="cartButtons" (click)="emptyCart()" value = "X" />
+            </span>
+            <br>
+    </div>
+    <div>
+        <div class = "cartContents">
+            <div *ngFor = "let cart of myCart; let i = index">
+                <hr>
+                <input type="button" class="right" [disabled]="currentPage != 1" (click)="removeProductFromCart(i, cart.product_name)" value="X"/>
+                <br>
+                Name: {{ cart.product_name }}
+                <br>
+                Amount:
+                <ng-template [ngIf]="currentPage == 1">
+                 <input type="button" class="" (click)="decreaseAmount(i, cart.product_name)" value="-" />
+                 </ng-template>
+                  {{ cart.amount }} 
+                <ng-template [ngIf]="currentPage == 1">
+                  <input type="button" class="" (click)="increaseAmount(i)" value="+" />
+                </ng-template>
+                <br>
+                Price: {{ cart.price }}
+                <hr>
+            </div>
+            <br>
+            <div class = "cartBottom">
+                <span class = "totalPrice">
+                    Total price: {{ totalPrice }}
+                </span>
+                <ng-template [ngIf]="currentPage == 0">
+                    <span class = "order">
+                        <input type="button" class="" (click)="moveBackToShop()" value="Back To Shop" />
+                    </span>
+                </ng-template>
+                <ng-template [ngIf]="currentPage == 1">
+                    <span class = "order">
+                        <input type="button" class="" (click)="moveToOrderPage()" value="Order" />
+                    </span>
+                </ng-template>
+            </div>
+    </div>
+
+    </div>
+</div>
+
+<div id = "cart" *ngIf="currentPage != 1">
+    <div class = "cartHeader">
+        <span class = "headerTitle">
+            My Cart:
+        </span>
+            <span class = "clearButton">
+                <input type="button" [disabled]="currentPage != 1" class="cartButtons" (click)="emptyCart()" value = "X" />
+            </span>
+    </div>
+    <div>
+        <div class = "cartContents">
+            <label for="search-term">Search</label>
+            <input placeholder="Enter term" (input)="updateSearch($event)" id="search-term">
+            <hr>
+            <div *ngFor="let receipt of receipts" [innerHTML]="receipt.summary | highlight: searchTerm">
+            </div>
+        <div class = "cartBottom">
+            <hr>
+            <span class = "totalPrice">
+                Total price: {{ totalPrice }}
+            </span>
+            <ng-template [ngIf]="currentPage == 0">
+                <span class = "order">
+                    <input type="button" class="" (click)="moveBackToShop()" value="Back To Shop" />
+                </span>
+            </ng-template>
+            <ng-template [ngIf]="currentPage == 1">
+                <span class = "order">
+                    <input type="button" class="" (click)="moveToOrderPage()" value="Order" />
+                </span>
+            </ng-template>
+        </div>
+    </div>
+</div>
