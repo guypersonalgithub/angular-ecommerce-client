@@ -1,27 +1,12 @@
-# Client
+# This is the client part of a E-commerce Angular project.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
+The project is being hosted [here](https://adoring-mayer-5b9576.netlify.app/).
+The server is hosted on Heroku's free tier, and because of that the first connection to the server might be slow.
 
-## Development server
+# The server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+To enter the server's GitHub, press [here](https://github.com/guypersonalgithub/angular-ecommerce-server)
 
-## Code scaffolding
+# For additional projects
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Feel free to visit my [portfolio](https://upbeat-benz-b6e02e.netlify.app/).
